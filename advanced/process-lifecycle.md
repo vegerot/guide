@@ -41,9 +41,9 @@ fn main() {
 {% endcode-tabs-item %}
 {% endcode-tabs %}
 
-After processing the flags, Deno first creates a V8 isolate \(an isolated V8 VM instance with its own heap\). We also pass in the snapshot here, which contains serialized heap data about TypeScript compiler and frontend code. This allows much faster startup speed.
+After processing the flags, Deno first creates a V8 isolate \(an isolated V8 VM instance with its own heap\). We also pass in the snapshot here, which contains serialized heap data about the TypeScript compiler and frontend code. This allows much faster startup speed.
 
-Immediately afterwards, we setup Tokio, and ask the isolate to execute a function called `denoMain`. Only after it has finished running this function does Deno starting its event loop. Once the event loop stops, the Deno process dies.
+Immediately afterwards, we setup Tokio, and ask the `isolate` to execute a function called `denoMain`. Only after it has finished running this function does Deno start its event loop. Once the event loop stops, the Deno process dies.
 
 ## denoMain\(\)
 
